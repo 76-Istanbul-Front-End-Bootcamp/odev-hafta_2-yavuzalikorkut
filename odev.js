@@ -10,7 +10,7 @@ var person = {
   }
 }
 
-var messageFunc = person.message
+var messageFunc = person.message.bind(person);
 messageFunc();
 
 
@@ -25,7 +25,7 @@ messageFunc();
 var numbers = {
   numbers: [[10,20,30], 2],
   multiply: function(){
-    this.numbers[0].map(function(number, numberIndex){
+    this.numbers[0].map((number, numberIndex) => {
         const result = number * this.numbers[1];
         console.log(result)
     })
@@ -43,7 +43,8 @@ numbers.multiply();
   Ornek : isValidName(" J ohn") false donmeli
 */
 function isValidName(name){
-
+  let result = /^[a-zA-Z]+ [a-zA-Z]+$/.test(name);
+  console.log(result);
 }
 
 /*
