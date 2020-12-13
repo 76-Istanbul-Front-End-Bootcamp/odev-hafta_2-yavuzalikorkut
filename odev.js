@@ -60,7 +60,19 @@ function isValidName(name){
   Ornek: katilimSaati("5", "30") 150 sonucunu vermelidir.
 */
 function katilimSaati(dersSayisi, dersSuresi){
-
+	var totalTime;
+	if(dersSayisi && dersSuresi) {
+		var isDersSayisiValid = typeof dersSayisi === "string" || typeof dersSayisi === "number";
+		var isDersSuresiValid = typeof dersSuresi === "string" || typeof dersSuresi === "number";
+		totalTime = (isDersSayisiValid && isDersSuresiValid) ? (dersSayisi * dersSuresi) : ("İki parametre de sayi veya string olmali");
+		return totalTime;
+	} else if(dersSayisi) {
+		totalTime = 'Ders suresini giriniz';
+		return totalTime;
+	} else {
+		totalTime = 'Ders sayisini giriniz';
+		return totalTime;
+	}
 }
 
 
